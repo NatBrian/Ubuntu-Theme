@@ -176,6 +176,7 @@ export class Terminal extends Component {
     handleCommands = (command, rowId) => {
         let words = command.split(' ').filter(Boolean);
         let main = words[0];
+        let errorMsg = "not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, dino, map, spotify, chrome, about-author, trash, settings  "
         words.shift()
         let result = "";
         let rest = words.join(" ");
@@ -244,7 +245,7 @@ export class Terminal extends Component {
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("vscode");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands:[ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg]";
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             case "echo":
@@ -254,56 +255,63 @@ export class Terminal extends Component {
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("spotify");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             case "chrome":
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("chrome");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
-                }
-                break;
-            case "todoist":
-                if (words[0] === "." || words.length === 0) {
-                    this.props.openApp("todo-ist");
-                } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             case "trash":
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("trash");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             case "about-author":
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("about-author");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             case "terminal":
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("terminal");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             case "settings":
                 if (words[0] === "." || words.length === 0) {
                     this.props.openApp("settings");
                 } else {
-                    result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                    result = "Command '" + main + errorMsg;
+                }
+                break;
+            case "dino":
+                if (words[0] === "." || words.length === 0) {
+                    this.props.openApp("gamedino");
+                } else {
+                    result = "Command '" + main + errorMsg;
+                }
+                break;
+            case "map":
+                if (words[0] === "." || words.length === 0) {
+                    this.props.openApp("map");
+                } else {
+                    result = "Command '" + main + errorMsg;
                 }
                 break;
             // case "sendmsg":
             //     if (words[0] === "." || words.length === 0) {
             //         this.props.openApp("gedit");
             //     } else {
-            //         result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+            //         result = "Command '" + main + errorMsg;
             //     }
             //     break;
             case "clear":
@@ -322,7 +330,7 @@ export class Terminal extends Component {
                 result = "<img class=' w-2/5' src='./images/memes/heh.jpeg' />";
                 break;
             default:
-                result = "Command '" + main + "' not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, spotify, chrome, about-author, todoist, trash, settings, sendmsg ]";
+                result = "Command '" + main + errorMsg;
         }
         document.getElementById(`row-result-${rowId}`).innerHTML = result;
         this.appendTerminalRow();
