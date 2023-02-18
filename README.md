@@ -13,6 +13,9 @@
 4. `npm run export`
 5. `firebase deploy`
 
+# Disable Firebase
+`firebase hosting:disable`
+
 
 Credit to: 
 https://github.com/vivek9patel
