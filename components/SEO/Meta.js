@@ -5,6 +5,7 @@ export default function Meta() {
     return (
         <Head>
            /* Primary Meta Tags */
+            <meta name="robots" content="noindex, nofollow" />
             {/* <title>Nathanael Brian</title>
             <meta charSet="utf-8" />
             <meta name="title" content="Nathanael Brian Portfolio" />
