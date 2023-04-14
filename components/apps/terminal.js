@@ -176,12 +176,12 @@ export class Terminal extends Component {
     handleCommands = (command, rowId) => {
         let words = command.split(' ').filter(Boolean);
         let main = words[0];
-        let errorMsg = "not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, dino, map, spotify, chrome, trash, settings  "
+        let errorMsg = " not found, or not yet implemented.<br>Available Commands: [ cd, ls, pwd, echo, clear, exit, mkdir, code, dino, map, spotify, chrome, trash, settings  "
         words.shift()
         let result = "";
         let rest = words.join(" ");
         rest = rest.trim();
-        switch (main) {
+        switch (main.toLowerCase()) {
             case "cd":
                 if (words.length === 0 || rest === "") {
                     this.current_directory = "~";
